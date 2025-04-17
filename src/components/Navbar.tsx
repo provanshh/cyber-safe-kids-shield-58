@@ -1,6 +1,6 @@
 
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Home, Info, Shield, CreditCard, HelpCircle, LayoutDashboard } from "lucide-react";
+import { Menu, X, Home, Info, Shield, CreditCard, HelpCircle, LayoutDashboard, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./Button";
 import { ShieldLogo } from "./ShieldLogo";
@@ -9,6 +9,11 @@ export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -19,7 +24,10 @@ export const Navbar = () => {
     if (isHomePage) {
       const section = document.getElementById(sectionId);
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        window.scrollTo({
+          top: section.offsetTop - 100, // Offset by navbar height
+          behavior: 'smooth'
+        });
       }
       // Close mobile menu if open
       if (isMenuOpen) {
@@ -40,8 +48,8 @@ export const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
-          <div className="flex gap-6">
+        <div className="hidden md:flex items-center gap-6">
+          <div className="flex gap-5">
             <Link to="/" className="font-medium text-gray-300 hover:text-cipher-purple transition-colors flex items-center gap-1.5">
               <Home size={18} />
               <span>Home</span>
@@ -75,7 +83,7 @@ export const Navbar = () => {
               <span>FAQ</span>
             </button>
             <Link to="/contact" className="font-medium text-gray-300 hover:text-cipher-purple transition-colors flex items-center gap-1.5">
-              <Menu size={18} />
+              <Mail size={18} />
               <span>Contact</span>
             </Link>
             <Link to="/dashboard" className="font-medium text-cipher-blue hover:text-cipher-blue-light transition-colors flex items-center gap-1.5">
@@ -101,34 +109,34 @@ export const Navbar = () => {
           </Link>
           <button 
             onClick={() => scrollToSection('features')}
-            className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2"
+            className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2 text-left"
           >
             <Shield size={18} />
             <span>Features</span>
           </button>
           <button 
             onClick={() => scrollToSection('how-it-works')}
-            className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2"
+            className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2 text-left"
           >
             <Info size={18} />
             <span>How It Works</span>
           </button>
           <button 
             onClick={() => scrollToSection('pricing')}
-            className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2"
+            className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2 text-left"
           >
             <CreditCard size={18} />
             <span>Pricing</span>
           </button>
           <button 
             onClick={() => scrollToSection('faq')}
-            className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2"
+            className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2 text-left"
           >
             <HelpCircle size={18} />
             <span>FAQ</span>
           </button>
           <Link to="/contact" className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2">
-            <Menu size={18} />
+            <Mail size={18} />
             <span>Contact</span>
           </Link>
           <Link to="/dashboard" className="font-medium text-cipher-blue py-2 hover:text-cipher-blue-light flex items-center gap-2">
