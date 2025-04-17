@@ -1,4 +1,3 @@
-
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
@@ -229,7 +228,7 @@ const Index = () => {
       </section>
       
       {/* Features Section */}
-      <section id="features" className="py-20 px-6 md:px-12 lg:px-24 bg-gray-50">
+      <section id="features" className="enhanced-section bg-[#111118] py-20 px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             title="Features That Protect Without Intruding"
@@ -277,7 +276,7 @@ const Index = () => {
       </section>
       
       {/* Testimonials Section */}
-      <section className="py-20 px-6 md:px-12 lg:px-24 bg-gray-50">
+      <section className="enhanced-section bg-[#111118] py-20 px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto">
           <SectionHeading
             title="Trusted By Parents"
@@ -330,7 +329,7 @@ const Index = () => {
       </section>
       
       {/* FAQ Section */}
-      <section id="faq" className="py-20 px-6 md:px-12 lg:px-24 bg-gray-50">
+      <section id="faq" className="enhanced-section bg-[#111118] py-20 px-6 md:px-12 lg:px-24">
         <div className="max-w-3xl mx-auto">
           <SectionHeading
             title="Frequently Asked Questions"

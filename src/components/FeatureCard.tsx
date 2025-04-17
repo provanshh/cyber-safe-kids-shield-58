@@ -15,18 +15,18 @@ export const FeatureCard = ({
   color = "default"
 }: FeatureCardProps) => {
   const iconColors = {
-    purple: "text-cipher-purple",
-    blue: "text-cipher-blue",
-    default: "text-cipher-gray"
+    purple: "text-cipher-purple bg-cipher-purple/10",
+    blue: "text-cipher-blue bg-cipher-blue/10",
+    default: "text-gray-400 bg-gray-800/20"
   };
 
   return (
-    <div className="feature-card flex flex-col items-start">
-      <div className={`p-3 rounded-lg bg-gray-50 mb-4 ${iconColors[color]}`}>
+    <div className="feature-card bg-[#171723] border border-[#2A2A3C] p-6 rounded-xl hover:shadow-[0_0_15px_rgba(139,92,246,0.2)] transition-shadow">
+      <div className={`p-3 rounded-lg mb-4 w-fit ${iconColors[color]}`}>
         <Icon className="h-6 w-6" />
       </div>
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-cipher-gray text-sm">{description}</p>
+      <h3 className="text-lg font-semibold mb-2 text-white">{title}</h3>
+      <p className="text-gray-300 text-sm">{description}</p>
     </div>
   );
 };
