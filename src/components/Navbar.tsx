@@ -63,7 +63,7 @@ export const Navbar = () => {
               Dashboard
             </Link>
           </div>
-          <Button variant="primary">Try For Free</Button>
+          <Button variant="primary" onClick={() => scrollToSection('pricing')}>Try For Free</Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -102,7 +102,7 @@ export const Navbar = () => {
           <Link to="/dashboard" className="font-medium text-cipher-blue py-2 hover:text-cipher-blue-light">
             Dashboard
           </Link>
-          <Button variant="primary" className="w-full mt-2" onClick={toggleMenu}>
+          <Button variant="primary" className="w-full mt-2" onClick={() => scrollToSection('pricing')}>
             Try For Free
           </Button>
         </div>

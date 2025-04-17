@@ -7,6 +7,7 @@ import { DashboardPreview } from "@/components/DashboardPreview";
 import { FAQ } from "@/components/FAQ";
 import { Testimonial } from "@/components/Testimonial";
 import { SectionHeading } from "@/components/SectionHeading";
+import { Link } from "react-router-dom";
 import {
   Image,
   Link as LinkIcon,
@@ -23,6 +24,13 @@ import {
 import { ShieldLogo } from "@/components/ShieldLogo";
 
 const Index = () => {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const features = [
     {
       icon: Image,
@@ -186,12 +194,14 @@ const Index = () => {
               Keep your children safe online without invading their privacy. Our AI-powered protection shields young minds from harmful content while building digital responsibility.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="blue" size="lg">
+              <Button variant="blue" size="lg" onClick={() => scrollToSection('pricing')}>
                 Try For Free
               </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 text-white border-white/30 hover:bg-white/20">
-                See Dashboard
-              </Button>
+              <Link to="/dashboard">
+                <Button variant="outline" size="lg" className="bg-white/10 text-white border-white/30 hover:bg-white/20">
+                  See Dashboard
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="md:w-1/2 flex justify-center">
@@ -268,9 +278,11 @@ const Index = () => {
               CipherGuard's easy-to-use dashboard gives you complete visibility into your child's online activity
               while maintaining their privacy and dignity.
             </p>
-            <Button variant="primary">
-              Try The Dashboard Free <ChevronRight className="ml-2 h-4 w-4" />
-            </Button>
+            <Link to="/dashboard">
+              <Button variant="primary">
+                Try The Dashboard Free <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -322,7 +334,7 @@ const Index = () => {
           
           <div className="mt-12 text-center">
             <p className="text-sm text-cipher-gray">
-              All plans include basic support. Need help choosing? <a href="#" className="text-cipher-purple underline">Contact us</a>
+              All plans include basic support. Need help choosing? <button onClick={() => scrollToSection('faq')} className="text-cipher-purple underline">Contact us</button>
             </p>
           </div>
         </div>
@@ -343,7 +355,7 @@ const Index = () => {
             <p className="text-cipher-gray mb-6">
               Have more questions? We're here to help.
             </p>
-            <Button variant="primary">
+            <Button variant="primary" onClick={() => scrollToSection('pricing')}>
               Contact Support
             </Button>
           </div>
@@ -361,12 +373,14 @@ const Index = () => {
             the internet safely and responsibly.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="blue" size="lg">
+            <Button variant="blue" size="lg" onClick={() => scrollToSection('pricing')}>
               Try For Free
             </Button>
-            <Button variant="outline" size="lg" className="bg-white/10 text-white border-white/30 hover:bg-white/20">
-              Learn More
-            </Button>
+            <Link to="/dashboard">
+              <Button variant="outline" size="lg" className="bg-white/10 text-white border-white/30 hover:bg-white/20">
+                Learn More
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
