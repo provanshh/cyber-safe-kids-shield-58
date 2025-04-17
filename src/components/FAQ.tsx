@@ -29,7 +29,7 @@ export const FAQ = ({ faqs }: FAQProps) => {
           className="border-b border-[#2A2A3C] last:border-b-0"
         >
           <AccordionTrigger 
-            className="text-left font-medium py-4 px-6 hover:bg-[#1E1E2C] text-white hover:text-cipher-purple transition-colors cursor-pointer"
+            className="text-left font-medium py-4 px-6 hover:bg-[#1E1E2C] text-white hover:text-cipher-purple transition-colors cursor-pointer w-full flex items-center justify-between"
           >
             {faq.question}
           </AccordionTrigger>

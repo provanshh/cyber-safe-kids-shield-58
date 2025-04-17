@@ -1,9 +1,25 @@
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 import { ShieldLogo } from "./ShieldLogo";
 
 export const Footer = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  // Function to handle smooth scrolling to sections on home page
+  const scrollToSection = (sectionId: string) => {
+    if (isHomePage) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If not on home page, navigate to home page with anchor
+      window.location.href = `/#${sectionId}`;
+    }
+  };
+
   return (
     <footer className="bg-[#111118] border-t border-gray-800">
       <div className="max-w-7xl mx-auto py-12 px-6 md:px-12 lg:px-24">
@@ -35,9 +51,9 @@ export const Footer = () => {
           <div>
             <h3 className="font-semibold text-sm uppercase tracking-wider text-white mb-4">Product</h3>
             <ul className="space-y-2">
-              <li><a href="#features" className="text-sm text-gray-300 hover:text-cipher-purple transition-colors">Features</a></li>
-              <li><a href="#how-it-works" className="text-sm text-gray-300 hover:text-cipher-purple transition-colors">How It Works</a></li>
-              <li><a href="#pricing" className="text-sm text-gray-300 hover:text-cipher-purple transition-colors">Pricing</a></li>
+              <li><button onClick={() => scrollToSection('features')} className="text-sm text-gray-300 hover:text-cipher-purple transition-colors">Features</button></li>
+              <li><button onClick={() => scrollToSection('how-it-works')} className="text-sm text-gray-300 hover:text-cipher-purple transition-colors">How It Works</button></li>
+              <li><button onClick={() => scrollToSection('pricing')} className="text-sm text-gray-300 hover:text-cipher-purple transition-colors">Pricing</button></li>
               <li><Link to="/testimonials" className="text-sm text-gray-300 hover:text-cipher-purple transition-colors">Testimonials</Link></li>
             </ul>
           </div>
@@ -45,7 +61,7 @@ export const Footer = () => {
           <div>
             <h3 className="font-semibold text-sm uppercase tracking-wider text-white mb-4">Support</h3>
             <ul className="space-y-2">
-              <li><a href="#faq" className="text-sm text-gray-300 hover:text-cipher-purple transition-colors">FAQ</a></li>
+              <li><button onClick={() => scrollToSection('faq')} className="text-sm text-gray-300 hover:text-cipher-purple transition-colors">FAQ</button></li>
               <li><Link to="/contact" className="text-sm text-gray-300 hover:text-cipher-purple transition-colors">Contact Us</Link></li>
               <li><Link to="/help" className="text-sm text-gray-300 hover:text-cipher-purple transition-colors">Help Center</Link></li>
               <li><Link to="/community" className="text-sm text-gray-300 hover:text-cipher-purple transition-colors">Community</Link></li>

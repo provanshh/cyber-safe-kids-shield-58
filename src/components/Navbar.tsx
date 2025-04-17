@@ -1,26 +1,33 @@
 
-import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Home, Info, Shield, CreditCard, HelpCircle, LayoutDashboard } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Button } from "./Button";
 import { ShieldLogo } from "./ShieldLogo";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Function to handle smooth scrolling to sections
+  // Function to handle smooth scrolling to sections on home page
   const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-    // Close mobile menu if open
-    if (isMenuOpen) {
-      setIsMenuOpen(false);
+    if (isHomePage) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Close mobile menu if open
+      if (isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    } else {
+      // If not on home page, navigate to home page with anchor
+      window.location.href = `/#${sectionId}`;
     }
   };
 
@@ -35,32 +42,45 @@ export const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           <div className="flex gap-6">
+            <Link to="/" className="font-medium text-gray-300 hover:text-cipher-purple transition-colors flex items-center gap-1.5">
+              <Home size={18} />
+              <span>Home</span>
+            </Link>
             <button 
               onClick={() => scrollToSection('features')}
-              className="font-medium text-gray-300 hover:text-cipher-purple transition-colors"
+              className="font-medium text-gray-300 hover:text-cipher-purple transition-colors flex items-center gap-1.5"
             >
-              Features
+              <Shield size={18} />
+              <span>Features</span>
             </button>
             <button 
               onClick={() => scrollToSection('how-it-works')}
-              className="font-medium text-gray-300 hover:text-cipher-purple transition-colors"
+              className="font-medium text-gray-300 hover:text-cipher-purple transition-colors flex items-center gap-1.5"
             >
-              How It Works
+              <Info size={18} />
+              <span>How It Works</span>
             </button>
             <button 
               onClick={() => scrollToSection('pricing')}
-              className="font-medium text-gray-300 hover:text-cipher-purple transition-colors"
+              className="font-medium text-gray-300 hover:text-cipher-purple transition-colors flex items-center gap-1.5"
             >
-              Pricing
+              <CreditCard size={18} />
+              <span>Pricing</span>
             </button>
             <button 
               onClick={() => scrollToSection('faq')}
-              className="font-medium text-gray-300 hover:text-cipher-purple transition-colors"
+              className="font-medium text-gray-300 hover:text-cipher-purple transition-colors flex items-center gap-1.5"
             >
-              FAQ
+              <HelpCircle size={18} />
+              <span>FAQ</span>
             </button>
-            <Link to="/dashboard" className="font-medium text-cipher-blue hover:text-cipher-blue-light transition-colors">
-              Dashboard
+            <Link to="/contact" className="font-medium text-gray-300 hover:text-cipher-purple transition-colors flex items-center gap-1.5">
+              <Menu size={18} />
+              <span>Contact</span>
+            </Link>
+            <Link to="/dashboard" className="font-medium text-cipher-blue hover:text-cipher-blue-light transition-colors flex items-center gap-1.5">
+              <LayoutDashboard size={18} />
+              <span>Dashboard</span>
             </Link>
           </div>
           <Button variant="primary" onClick={() => scrollToSection('pricing')}>Try For Free</Button>
@@ -75,32 +95,45 @@ export const Navbar = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden absolute top-16 left-0 right-0 bg-[#0A0A14] shadow-lg py-4 px-6 flex flex-col gap-4 border-b border-[#2A2A3C] z-50">
+          <Link to="/" className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2">
+            <Home size={18} />
+            <span>Home</span>
+          </Link>
           <button 
             onClick={() => scrollToSection('features')}
-            className="font-medium text-gray-300 py-2 hover:text-cipher-purple"
+            className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2"
           >
-            Features
+            <Shield size={18} />
+            <span>Features</span>
           </button>
           <button 
             onClick={() => scrollToSection('how-it-works')}
-            className="font-medium text-gray-300 py-2 hover:text-cipher-purple"
+            className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2"
           >
-            How It Works
+            <Info size={18} />
+            <span>How It Works</span>
           </button>
           <button 
             onClick={() => scrollToSection('pricing')}
-            className="font-medium text-gray-300 py-2 hover:text-cipher-purple"
+            className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2"
           >
-            Pricing
+            <CreditCard size={18} />
+            <span>Pricing</span>
           </button>
           <button 
             onClick={() => scrollToSection('faq')}
-            className="font-medium text-gray-300 py-2 hover:text-cipher-purple"
+            className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2"
           >
-            FAQ
+            <HelpCircle size={18} />
+            <span>FAQ</span>
           </button>
-          <Link to="/dashboard" className="font-medium text-cipher-blue py-2 hover:text-cipher-blue-light">
-            Dashboard
+          <Link to="/contact" className="font-medium text-gray-300 py-2 hover:text-cipher-purple flex items-center gap-2">
+            <Menu size={18} />
+            <span>Contact</span>
+          </Link>
+          <Link to="/dashboard" className="font-medium text-cipher-blue py-2 hover:text-cipher-blue-light flex items-center gap-2">
+            <LayoutDashboard size={18} />
+            <span>Dashboard</span>
           </Link>
           <Button variant="primary" className="w-full mt-2" onClick={() => scrollToSection('pricing')}>
             Try For Free

@@ -1,3 +1,4 @@
+
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
@@ -355,9 +356,11 @@ const Index = () => {
             <p className="text-cipher-gray mb-6">
               Have more questions? We're here to help.
             </p>
-            <Button variant="primary" onClick={() => scrollToSection('pricing')}>
-              Contact Support
-            </Button>
+            <Link to="/contact">
+              <Button variant="primary">
+                Contact Support
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
