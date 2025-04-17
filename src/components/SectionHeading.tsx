@@ -25,7 +25,7 @@ export const SectionHeading = ({
       className
     )}>
       <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${glowClass}`}>{title}</h2>
-      {subtitle && <p className="text-lg text-gray-400">{subtitle}</p>}
+      {subtitle && <p className="text-lg text-gray-300 font-medium">{subtitle}</p>}
     </div>
   );
 };

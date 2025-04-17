@@ -20,10 +20,10 @@ export const FAQ = ({ faqs }: FAQProps) => {
     <Accordion type="single" collapsible className="w-full">
       {faqs.map((faq, index) => (
         <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-200">
-          <AccordionTrigger className="text-left font-medium py-4 hover:text-cipher-purple hover:no-underline">
+          <AccordionTrigger className="text-left font-medium py-4 hover:text-cipher-purple hover:no-underline text-white">
             {faq.question}
           </AccordionTrigger>
-          <AccordionContent className="text-cipher-gray py-3">
+          <AccordionContent className="text-gray-300 py-3 font-medium">
             {faq.answer}
           </AccordionContent>
         </AccordionItem>
