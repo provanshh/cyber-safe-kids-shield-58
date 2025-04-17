@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -14,13 +13,13 @@ import { Button } from "@/components/Button";
 import { 
   Activity, 
   Bell, 
-  Clock, 
+  Clock as LucideClock, 
   Download, 
   FileText, 
   RefreshCw, 
   Save, 
   Settings, 
-  Shield, 
+  Shield as LucidShield, 
   Users 
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
@@ -114,7 +113,7 @@ const Dashboard = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-[#11111D] p-4 rounded-lg border border-[#2A2A3C]">
                       <h4 className="font-medium mb-3 text-cyan-400 flex items-center">
-                        <Shield className="h-4 w-4 mr-2" />
+                        <LucidShield className="h-4 w-4 mr-2" />
                         Content Filtering
                       </h4>
                       <div className="space-y-3">
@@ -141,7 +140,7 @@ const Dashboard = () => {
                     
                     <div className="bg-[#11111D] p-4 rounded-lg border border-[#2A2A3C]">
                       <h4 className="font-medium mb-3 text-cyan-400 flex items-center">
-                        <Clock className="h-4 w-4 mr-2" />
+                        <LucideClock className="h-4 w-4 mr-2" />
                         Time Restrictions
                       </h4>
                       <div className="space-y-3">
@@ -649,5 +648,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-import { Clock, Shield } from "lucide-react";
