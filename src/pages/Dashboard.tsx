@@ -11,7 +11,18 @@ import { DeviceList } from "@/components/DeviceList";
 import { ProtectionStatus } from "@/components/ProtectionStatus";
 import { ActivityMonitor } from "@/components/ActivityMonitor";
 import { Button } from "@/components/Button";
-import { Download, FileText, RefreshCw, Save, Settings, Users } from "lucide-react";
+import { 
+  Activity, 
+  Bell, 
+  Clock, 
+  Download, 
+  FileText, 
+  RefreshCw, 
+  Save, 
+  Settings, 
+  Shield, 
+  Users 
+} from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 
 const Dashboard = () => {
