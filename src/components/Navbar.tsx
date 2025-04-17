@@ -13,27 +13,30 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="py-4 px-6 md:px-12 lg:px-24 w-full fixed top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+    <nav className="py-4 px-6 md:px-12 lg:px-24 w-full fixed top-0 z-50 bg-[#0A0A14]/80 backdrop-blur-md border-b border-[#2A2A3C]">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2">
           <ShieldLogo className="h-8 w-8 text-cipher-purple" />
-          <span className="text-xl font-bold text-cipher-gray-dark">CipherGuard</span>
+          <span className="text-xl font-bold text-white neon-text">CipherGuard</span>
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           <div className="flex gap-6">
-            <Link to="/#features" className="font-medium text-cipher-gray hover:text-cipher-purple transition-colors">
+            <Link to="/#features" className="font-medium text-gray-300 hover:text-cipher-purple transition-colors">
               Features
             </Link>
-            <Link to="/#how-it-works" className="font-medium text-cipher-gray hover:text-cipher-purple transition-colors">
+            <Link to="/#how-it-works" className="font-medium text-gray-300 hover:text-cipher-purple transition-colors">
               How It Works
             </Link>
-            <Link to="/#pricing" className="font-medium text-cipher-gray hover:text-cipher-purple transition-colors">
+            <Link to="/#pricing" className="font-medium text-gray-300 hover:text-cipher-purple transition-colors">
               Pricing
             </Link>
-            <Link to="/#faq" className="font-medium text-cipher-gray hover:text-cipher-purple transition-colors">
+            <Link to="/#faq" className="font-medium text-gray-300 hover:text-cipher-purple transition-colors">
               FAQ
+            </Link>
+            <Link to="/dashboard" className="font-medium text-cipher-blue hover:text-cipher-blue-light transition-colors">
+              Dashboard
             </Link>
           </div>
           <Button variant="primary">Try For Free</Button>
@@ -41,24 +44,27 @@ export const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button className="md:hidden" onClick={toggleMenu}>
-          {isMenuOpen ? <X className="h-6 w-6 text-cipher-gray" /> : <Menu className="h-6 w-6 text-cipher-gray" />}
+          {isMenuOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-white shadow-md py-4 px-6 flex flex-col gap-4 border-b border-gray-100">
-          <Link to="/#features" className="font-medium text-cipher-gray py-2 hover:text-cipher-purple" onClick={toggleMenu}>
+        <div className="md:hidden absolute top-16 left-0 right-0 bg-[#0A0A14] shadow-lg py-4 px-6 flex flex-col gap-4 border-b border-[#2A2A3C] z-50">
+          <Link to="/#features" className="font-medium text-gray-300 py-2 hover:text-cipher-purple" onClick={toggleMenu}>
             Features
           </Link>
-          <Link to="/#how-it-works" className="font-medium text-cipher-gray py-2 hover:text-cipher-purple" onClick={toggleMenu}>
+          <Link to="/#how-it-works" className="font-medium text-gray-300 py-2 hover:text-cipher-purple" onClick={toggleMenu}>
             How It Works
           </Link>
-          <Link to="/#pricing" className="font-medium text-cipher-gray py-2 hover:text-cipher-purple" onClick={toggleMenu}>
+          <Link to="/#pricing" className="font-medium text-gray-300 py-2 hover:text-cipher-purple" onClick={toggleMenu}>
             Pricing
           </Link>
-          <Link to="/#faq" className="font-medium text-cipher-gray py-2 hover:text-cipher-purple" onClick={toggleMenu}>
+          <Link to="/#faq" className="font-medium text-gray-300 py-2 hover:text-cipher-purple" onClick={toggleMenu}>
             FAQ
+          </Link>
+          <Link to="/dashboard" className="font-medium text-cipher-blue py-2 hover:text-cipher-blue-light" onClick={toggleMenu}>
+            Dashboard
           </Link>
           <Button variant="primary" className="w-full mt-2" onClick={toggleMenu}>
             Try For Free
