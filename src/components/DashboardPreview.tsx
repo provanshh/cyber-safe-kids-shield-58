@@ -26,7 +26,14 @@ const getLast6Days = () => {
     return date.toISOString().split("T")[0]; // YYYY-MM-DD
   });
 };
-
+const getLast6Days = () => {
+  const today = new Date();
+  return Array.from({ length: 6 }, (_, i) => {
+    const date = new Date(today);
+    date.setDate(today.getDate() - i);
+    return date.toISOString().split("T")[0]; // YYYY-MM-DD
+  }).reverse(); // So earliest day first
+};
 const RealtimeChart = () => {
   const [data, setData] = useState([]);
 
